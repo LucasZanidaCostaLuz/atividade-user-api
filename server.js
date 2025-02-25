@@ -1,7 +1,6 @@
-const usersRoutes = require("./routes/usersRoutes");
-app.use("/api", usersRoutes);
+const usersRoutes = require("./src/routes/userRoutes");
+const postRoutes = require("./src/routes/postRoutes")
 
-require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
@@ -13,3 +12,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
+
+app.use("/api", postRoutes);
+app.use("/api", usersRoutes);
