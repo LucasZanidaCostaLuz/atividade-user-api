@@ -18,7 +18,7 @@ class PostList {
         return this.posts.push(post)
     }
     updatePost(id, UpdatedData){
-        const post = this.posts.getPostById(id);
+        const post = this.getPostById(id);
         Object.assign(post, UpdatedData);
         return post;
     }

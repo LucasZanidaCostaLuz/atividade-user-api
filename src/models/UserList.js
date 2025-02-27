@@ -17,9 +17,9 @@ class UserList {
         return user;
     }
 
-    updateUser(id, updatedData) {
+    updateUser(id, UpdatedData) {
         const user = this.getUserById(id);
-        Object.assign(user, updatedData);
+        Object.assign(user, UpdatedData);
         return user;
     }
 

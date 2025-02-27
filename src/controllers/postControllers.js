@@ -41,12 +41,13 @@ const routerPost = {
             });
         }
     },
-    updateUser: (req, res) => {
+    updatePost: (req, res) => {
         try {
-            res.status(200).json(listaP.updatePost(req.body, req.params.id))
+            listaP.updatePost(req.params.id, req.body)
+            res.status(200).json({ message: "postagem atualizada com sucesso"})
         } catch (error) {
             res.status(404).json({
-                message: "erro ao atualizar postagem"
+                message: "erro ao atualizar postagem", error
             })
         }
     },
