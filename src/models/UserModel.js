@@ -1,8 +1,13 @@
 const pool = require("../config/database");
 
-const getUsuarios = async () => {
-    const result = await pool.query("SELECT * FROM usuarios");
+const getUsuarios = async (name) => {
+    if(!name){
+        const result = await pool.query("SELECT * FROM usuarios");
     return result.rows;
+    }else{
+        const result = await pool.query("SELECT * FROM usuarios WHERE name ILIKE $1", [`%${name}%`]);
+    return result.rows;
+    }
 };
 
 const getUsuariosById = async (id) => {

@@ -2,7 +2,8 @@ const UserModel = require('../models/UserModel');
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await UserModel.getUsuarios();
+        const { name } = req.query;
+        const users = await UserModel.getUsuarios(name);
         res.json(users);
     } catch (error) {
         res.status(500).json({ error: 'Erro ao buscar usuários.' });
@@ -57,3 +58,5 @@ const createUser = async (req, res) => {
         res.status(500).json({ message: "Erro ao criar o usuário." });
     }
 }
+
+module.exports = {getAllUsers, getUserById, createUser, deleteUser, updateUser}
