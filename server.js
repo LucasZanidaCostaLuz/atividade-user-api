@@ -4,9 +4,11 @@ const express = require("express");
 const cors = require("cors");
 const usersRoutes = require("./src/routes/userRoutes");
 const postRoutes = require("./src/routes/postRoutes");
-const reportRoutes = require("./src/routes/reportRoutes")
+const reportRoutes = require("./src/routes/reportRoutes");
+const setupSwagger = require('./src/config/swagger');
 
 const app = express();
+setupSwagger(app);
 
 app.use(cors());
 app.use(express.json());
